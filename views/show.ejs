@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+	<title><%= blog.title %></title>
+	<!-- this has to be blog not the post -->
+</head>
+<body>
+	<h1><%= blog.title %></h1> 
+	<!-- this has to be blog not the post  -->
+	<a href="/blog/<%= blog.id %>/edit">edit this post here</a>
+
+	<form method="POST" action="/blog/<%= blog.id %>?_method=DELETE">
+		<button>Delete</button>
+	</form>
+</body>
+</html>

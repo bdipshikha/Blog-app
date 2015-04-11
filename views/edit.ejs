@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>blog.title</title>
+</head>
+	<body>
+			<h1>You can edit blog below:</h1>
+			<form action ="/blog/<%= blog.id %>?_method=PUT" method="POST">
+			<!-- <input type="text" name="headline" value="<%= article.headline %>" required> -->
+			<!-- <input type="text" name="byline" value="<%= article.byline %>" required> -->
+			<textarea name="content" required><%= body.content %></textarea>
+			<input type="text" name="image" value="<%= blog.image %>" required>
+			<button>Submit</button>
+			</form>
+			<a href="/">Back to blog</a>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+
+	<h1>Welcome to My Photo Blog</h1>
+	
+	<ul>
+		<%blogs.forEach(function(obj) { %>
+		<li>
+			<h2><a href="/blog/<%= obj.id %>"><%= obj.title %></a></h2>
+			</br>
+
+			</li>
+			<% }); %>
+	</ul>
+
+</body>
+</html>
