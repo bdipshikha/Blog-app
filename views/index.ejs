@@ -9,12 +9,16 @@
 	<ul>
 		<%blogs.forEach(function(obj) { %>
 		<li>
-			<h2><a href="/blog/<%= obj.id %>"><%= obj.title %></a></h2>
+			<h2><a href="/blog/<%= obj.id %>"><%= obj.title %> with an id of <%= obj.id %></a></h2>
 			</br>
 
 			</li>
 			<% }); %>
 	</ul>
+
+	<a href="/posts/new"> Create a new post</a>
+</body>
+</html>
 
 </body>
 </html>

@@ -24,7 +24,7 @@ var db = new sqlite3.Database('./blogdb/blogs.db'); //
 
 app.get('/', function(req, res){
 	res.redirect('/blogs')
-})
+});
 
 // to get all the posts
 app.get('/blogs', function(req, res) { // all posts, blogs
@@ -38,6 +38,8 @@ app.get('/blogs', function(req, res) { // all posts, blogs
 		res.render('index.ejs', {blogs: blogs});	
 	});
 });
+
+// to get single post
 app.get('/blog/:id', function(req, res){
 	var id = req.params.id
 	db.get("SELECT * FROM posts WHERE id = ?", id, function(err, thisPost){
@@ -48,28 +50,52 @@ app.get('/blog/:id', function(req, res){
 });
 
 // for new post
-app.get('/blogs/new', function(req, res){
+app.get('/posts/new', function(req, res){
     res.render('new.ejs')
-})
+});
+
+//create a post
+app.post('/blogs', function(req, res){
+    console.log(req.body)
+    //get info from req.body, make new post
+    db.run("INSERT INTO posts (title, body, image) VALUES (?, ?, ?)", req.body.title, req.body.body, req.body.image, function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    //go to /blogs so we can see our new post
+    res.redirect('/blogs')
+});
 
 
+// to go to edit page to edit a post
+app.get('/blog/:id/edit', function(req, res){
+	var id = req.params.id
+    db.get("SELECT * FROM posts WHERE id = ?", id, function(err, thisPost) {
+        if (err) {
+            throw err
+        } else {
+            res.render("edit.ejs", {thisPost: thisPost})
+        }
+    });
+});
 
+//update a post
+app.put('/blog/:id', function(req, res){
+	console.log("put");
+    //make changes to appropriate post
+    db.run("UPDATE posts SET title = ?, body = ? WHERE id = ?", req.body.title, req.body.content, req.body.image, function(err) {
+        if (err) {
+            throw err
+        } // console.log(res)
+    })
+    //redirect to this blog page to see changes
+    res.redirect('/blog/' + req.params.id)// needs to blog not blogs since only one post
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.delete("/blog/:id", function(req,res){
+	delete student(req.params.id);
+});
 
 app.listen('3000')
 console.log("Listing to port 3000")
