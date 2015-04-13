@@ -4,15 +4,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>blog.title</title>
+	<style>
+ h1 {
+	text-align: center;
+	color: #F00;
+	font-family: chalkduster;
+  }
+  body {
+	text-align: left;
+	background-color: tan;
+	margin: 30px;
+	padding: 0px 10px 5px;
+  }
+    a {
+	color: red;
+  }
+  p {
+	text-align: justify;
+	color: blue;
+	font-family: times new roman;
+	font-size: 18px;
+  }
+  </style>
 </head>
 <body>
 	<h1>Create New Post</h1>
 	<form action ="/blogs" method="POST">
-		<input type="text" name="title" placeholder="title" required>
-		<textarea name="content" placeholder="content" required></textarea>   
+		<input type="text" name="title" placeholder="title" required><br>
+		<textarea rows="15" cols="130" name="content" placeholder="body" required></textarea><br> 
+		<!-- placeholder needs to be body, not content   -->
 		<input type="text" name="image" placeholder="url" required>
 		<button>Submit</button>
-	</form>
+	</form><br>
 	<a href="/">Back to blogs</a>
 </body>
 </html>

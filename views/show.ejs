@@ -2,23 +2,46 @@
 <head>
 	<title><%= blog.title %></title>
 	<!-- this has to be blog not the post -->
-
+	<style>
+		h1 {
+			text-align: center;
+			color: #F00;
+			font-family: chalkduster;
+		}
+		body {
+			text-align: justify;
+			background-color: tan;
+			margin: 30px;
+			padding: 0px 10px 5px;
+		}
+		a {
+			color: red;
+		}
+		p {
+			text-align: justify;
+			color: blue;
+			font-family: times new roman;
+			font-size: 18px;
+		}
+		img {
+			margin: 50px 20px 20px 150px;
+		}
+	</style>
 
 
 </head>
 <body>
+	<a href="/blog/<%= blog.id %>/edit">Edit post</a><br>
 	<h1><%= blog.title %></h1> 
 	<!-- this has to be blog not the post  -->
 
-		<p>
-		
-		<%= blog.title %></br> 
+		<p> 
 		<%= blog.body %></br>
 		</p>
 		<img src="<%= blog.image %>"><br>
 		<!-- has to be blog not post -->
-		<a href="/blog/<%= blog.id %>/edit">Edit post</a><br>
-		<a href="/">Back to blogs</a>
+		
+		<a href="/">Back to blogs</a><br>
 
 		<form method="POST" action="/blog/<%= blog.id %>?_method=DELETE">
 			<button>Delete</button>
@@ -26,4 +49,4 @@
 	</body>
 	</html>
 
-	<!-- /Users/Dipshikh/aDesktop/Pictures/Cherry Blossom-2015/DSC03062.JPG -->
+	
