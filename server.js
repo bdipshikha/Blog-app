@@ -44,7 +44,7 @@ app.get('/blog/:id', function(req, res){
 	var id = req.params.id
 	db.get("SELECT * FROM posts WHERE id = ?", id, function(err, thisPost){
 		var post_row = thisPost;
-		console.log(post_row.title);
+		console.log(post_row);
 			res.render('show.ejs', {blog: post_row })
 	});		
 });
@@ -84,17 +84,23 @@ app.get('/blog/:id/edit', function(req, res){
 app.put('/blog/:id', function(req, res){
 	console.log("put");
     //make changes to appropriate post
-    db.run("UPDATE posts SET title = ?, body = ? WHERE id = ?", req.body.title, req.body.content, req.body.image, function(err) {
+    db.run("UPDATE posts SET title = ?, body = ?, image = ? WHERE id = ?", req.body.title, req.body.content, req.body.image, req.params.id, function(err) {
         if (err) {
             throw err
         } // console.log(res)
     })
     //redirect to this blog page to see changes
-    res.redirect('/blog/' + req.params.id)// needs to blog not blogs since only one post
+    res.redirect('/blog/' + req.params.id)// needs to be blog not blogs since only one post
 });
 
 app.delete("/blog/:id", function(req,res){
-	delete student(req.params.id);
+	db.run("DELETE FROM posts WHERE id = ?", req.params.id, function(err) {
+        if (err) {
+            throw err
+        }
+    })
+    //go to /pets to see change
+    res.redirect('/blogs')
 });
 
 app.listen('3000')

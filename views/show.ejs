@@ -7,10 +7,12 @@
 	<h1><%= blog.title %></h1> 
 	<!-- this has to be blog not the post  -->
 
-		<p><%= blog.id %></br>
+		<p>
+		<%= blog.id %></br>
 		<%= blog.title %></br> 
 		<%= blog.body %></br>
-		<%= blog.image %> </p>
+		</p>
+		<img src="<%= blog.image %>">
 		<!-- has to be blog not post -->
 		<a href="/blog/<%= blog.id %>/edit">Edit post</a>
 
@@ -19,3 +21,5 @@
 		</form>
 	</body>
 	</html>
+
+	<!-- /Users/Dipshikh/aDesktop/Pictures/Cherry Blossom-2015/DSC03062.JPG -->
