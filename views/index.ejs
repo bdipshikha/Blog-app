@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
 	<style> 
-  h1 {
-	text-align: center;
-	color: #F00;
-	font-family: chalkduster;
-  }
-  body {
-	text-align: left;
-	background-color: tan;
-	margin: 30px;
-	padding: 0px 10px 5px;
-  }
-    a {
-	color: red;
-	font-size: 18px;
-  }
-  p {
-	text-align: justify;
-	color: blue;
-	font-family: times new roman;
-	font-size: 18px;
-  }
+		h1 {
+			text-align: center;
+			color: #F00;
+			font-family: chalkduster;
+		}
+		body {
+			text-align: left;
+			background-color: tan;
+			margin: 30px;
+			padding: 0px 10px 5px;
+		}
+		a {
+			color: red;
+			font-size: 18px;
+		}
+		p {
+			text-align: justify;
+			color: blue;
+			font-family: times new roman;
+			font-size: 18px;
+		}
+		li {
+			padding: 0px 0px 10px;
+		}
+		ul {
+			padding: 10px 10px 10px 20px;
+		}
 
-  
-  </style>
-	</head>
-	<body>
+
+	</style>
+</head>
+<body>
 
 	<h1>Welcome to My Blog</h1>
 	<p>
-	A blog (a truncation of the expression weblog)[1] is a discussion or informational site published on the World Wide Web and consisting of discrete entries ("posts") typically displayed in reverse chronological order (the most recent post appears first). Until 2009 blogs were usually the work of a single individual[citation needed], occasionally of a small group, and often covered a single subject. More recently "multi-author blogs" (MABs) have developed, with posts written by large numbers of authors and professionally edited. MABs from newspapers, other media outlets, universities, think tanks, advocacy groups and similar institutions account for an increasing quantity of blog traffic. The rise of Twitter and other "microblogging" systems helps integrate MABs and single-author blogs into societal newstreams. Blog can also be used as a verb, meaning to maintain or add content to a blog.</p><br>
+		A blog (a truncation of the expression weblog)[1] is a discussion or informational site published on the World Wide Web and consisting of discrete entries ("posts") typically displayed in reverse chronological order (the most recent post appears first). Until 2009 blogs were usually the work of a single individual[citation needed], occasionally of a small group, and often covered a single subject. More recently "multi-author blogs" (MABs) have developed, with posts written by large numbers of authors and professionally edited. MABs from newspapers, other media outlets, universities, think tanks, advocacy groups and similar institutions account for an increasing quantity of blog traffic. The rise of Twitter and other "microblogging" systems helps integrate MABs and single-author blogs into societal newstreams. Blog can also be used as a verb, meaning to maintain or add content to a blog.</p><br>
 
-	<p> Source : Wikipedia, the encyclopedia</p>
-	
-	<ul>
-		<%blogs.forEach(function(obj) { %>
-		<li>
-			<h5><a href="/blog/<%= obj.id %>"><%= obj.title %> </a></h5> 
+		<p> Source : Wikipedia, the encyclopedia</p>
+		<p>
+		<ul>
+			<%blogs.forEach(function(obj) { %>
+			<li>
+				<a href="/blog/<%= obj.id %>"><%= obj.title %> </a>
 			</br>
 
-			</li>
-			<% }); %>
+		</li>
+		<% }); %>
 	</ul>
+	</p>
 
 	<a href="/posts/new"> Create a new post</a>
 </body>
 </html>
 
-</body>
-</html>
