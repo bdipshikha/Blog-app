@@ -5,3 +5,5 @@ title TEXT,
 body TEXT,
 image TEXT
 );
+
+-- no end
